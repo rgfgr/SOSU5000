@@ -24,6 +24,19 @@ namespace WebApi.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Assignment>>> GetAssignments()
+        {
+            try
+            {
+                return Ok(await unitOfWork.AssignmentRepository.GetAll());
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddAssignment(Assignment assignment)
         {

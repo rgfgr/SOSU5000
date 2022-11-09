@@ -63,9 +63,8 @@ public partial class SOSUContext : DbContext
 
         modelBuilder.Entity<Tenent>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Tenents__3214EC077FFC64FE");
+            entity.HasKey(e => e.Id).HasName("PK__tmp_ms_x__3214EC07418D63D2");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Name).HasMaxLength(50);
         });
 
