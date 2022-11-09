@@ -23,7 +23,7 @@ namespace ViewModel
         [RelayCommand]
         public async Task Tap(Tenent tenent)
         {
-            await Shell
+            await Shell.Current.GoToAsync($"{nameof(TenentPage)}?Tenent={tenent}");
         }
 
         public async Task Window_Loaded()

@@ -53,19 +53,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\ViewModel\ViewModel.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="TenentPage.xaml.cs">
+	  <Compile Update="Views\TenentPage.xaml.cs">
 	    <DependentUpon>TenentPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="TenentPage.xaml">
+	  <MauiXaml Update="Views\TenentPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Entities\Entities.csproj" />
 	</ItemGroup>
 
 </Project>

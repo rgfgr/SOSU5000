@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Services.Interfaces
 {
-    public interface ITenentService : IRestService<Tenent>
+    public interface IAssignmentService : IRestService<Assignment>
     {
-        Task<List<Tenent>> GetAllTenents();
     }
 }

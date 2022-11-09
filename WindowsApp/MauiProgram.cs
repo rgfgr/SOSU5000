@@ -1,4 +1,7 @@
-﻿using ViewModel;
+﻿using Services;
+using Services.Interfaces;
+using ViewModel;
+using WindowsApp.Views;
 
 namespace WindowsApp
 {
@@ -15,6 +18,7 @@ namespace WindowsApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<ITenentService, TenentService>();
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainPageViewModel>();
 
