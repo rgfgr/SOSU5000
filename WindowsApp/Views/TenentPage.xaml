@@ -2,11 +2,36 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WindowsApp.Views.TenentPage"
+             xmlns:viewmodel="clr-namespace:WindowsApp.ViewModels"
+             xmlns:model="clr-namespace:Entities;assembly=Entities"
+             x:DataType="viewmodel:TenentPageViewModel"
              Title="TenentPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    
+    <Grid RowDefinitions="100, Auto, *"
+          ColumnDefinitions=".33*, .33*, .33*"
+          RowSpacing="10"
+          Padding="10">
+
+        <Label Text="Assignments" Grid.Row="1" Grid.ColumnSpan="2"
+               HorizontalOptions="Center" FontSize="25"/>
+        <!-- Add assignment button here-->
+
+        <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
+                        ItemsSource="{Binding Tenent.Assignments}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Assignment">
+                    <Grid Padding="0,5">
+                        <Frame BackgroundColor="Orange">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TenentPageViewModel}}, Path=TapCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
