@@ -1,11 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Entities;
-using Services.Interfaces;
+using WindowsApp.Services.Interfaces;
 using System.Collections.ObjectModel;
-using Microsoft.Maui.Graphics
+using WindowsApp.Views;
 
-namespace ViewModel
+namespace WindowsApp.ViewModels
 {
     public partial class MainPageViewModel : ObservableObject
     {
@@ -26,7 +26,7 @@ namespace ViewModel
             await Shell.Current.GoToAsync($"{nameof(TenentPage)}?Tenent={tenent}");
         }
 
-        public async Task Window_Loaded()
+        public async Task Loaded()
         {
             List<Tenent> tempTenents = await tenentService.GetAllTenents();
             tempTenents.ForEach(t => Tenents.Add(t));

@@ -1,6 +1,6 @@
-﻿using Services;
-using Services.Interfaces;
-using ViewModel;
+﻿using WindowsApp.Services;
+using WindowsApp.Services.Interfaces;
+using WindowsApp.ViewModels;
 using WindowsApp.Views;
 
 namespace WindowsApp

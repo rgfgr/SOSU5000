@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
-using Services.Interfaces;
+using WindowsApp.Services.Interfaces;
 using System.Text;
 
-namespace Services
+namespace WindowsApp.Services
 {
     public class RestService<TEntity> : IRestService<TEntity> where TEntity : class
     {
-        protected string baseUrl = "http://localhost:7279/api";
+        protected string baseUrl = "https://localhost:7279/api";
         public async Task<List<TEntity>> DoHttpGetRequest(string controllerUrl)
         {
             var returnResponse = new List<TEntity>();

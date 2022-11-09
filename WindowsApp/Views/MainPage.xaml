@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WindowsApp.Views.MainPage"
              Title="MainPage"
-             xmlns:viewmodel="clr-namespace:ViewModel"
+             xmlns:viewmodel="clr-namespace:WindowsApp.ViewModels"
              xmlns:model="clr-namespace:Entities;assembly=Entities"
              x:DataType="viewmodel:MainPageViewModel"
-             Loaded="{Binding Window_Loaded}">
+             Loaded="Window_Loaded">
 
     <Grid RowDefinitions="100, Auto, *"
           ColumnDefinitions=".33*, .33*, .33*"
@@ -16,12 +16,13 @@
         <Label Text="Tenents"
                Grid.Row="1"
                Grid.ColumnSpan="2"
-               HorizontalTextAlignment="Center"/>
+               HorizontalTextAlignment="Center"
+               FontSize="25"/>
         <!-- Not added yet
         <Button Text="Add Tenent"
                 Command="{Binding AddTenentCommand}"
                 Grid.Row="1"
-                Grid.Column="2"/> -->
+                Grid.Column="3"/> -->
 
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
                         ItemsSource="{Binding Tenents}"
@@ -29,15 +30,15 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Tenent">
                     <Grid Padding="0,5">
-                        <Frame>
+                        <Frame BackgroundColor="Orange">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainPageViewModel}}, Path=TapCommand}"
                                     CommandParameter="{Binding .}"/>
                             </Frame.GestureRecognizers>
-                            <StackLayout BackgroundColor="Orange" Padding="10">
+                            <StackLayout Padding="10">
 
-                                <Grid ColumnDefinitions="Auto Auto" ColumnSpacing="5">
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
                                     <Label Text="ID:" Grid.Row="1" FontAttributes="Bold"/>
                                     <Label Text="{Binding Id}" Grid.Column="2"/>
                                 </Grid>
