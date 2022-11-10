@@ -12,7 +12,7 @@ public partial class AssignmentPage : ContentPage
 		BindingContext = vm;
 	}
 
-	private void Window_Loaded(object sender, EventArgs e)
+	private async void Window_Loaded(object sender, EventArgs e)
 	{
 		await vm.Loaded();
 	}

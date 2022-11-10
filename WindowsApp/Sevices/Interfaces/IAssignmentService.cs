@@ -9,7 +9,9 @@ namespace WindowsApp.Services.Interfaces
 {
     public interface IAssignmentService : IRestService<Assignment>
     {
+        Task<string> AddAssignment(Assignment assignment);
         Task<Assignment> GetAssignment(int id);
         Task<List<Assignment>> GetAssignmentsByTenent(int id);
+        Task<string> SaveAssignment(Assignment assignment);
     }
 }

@@ -18,7 +18,17 @@ namespace WindowsApp.Sevices
 
         public async Task<Assignment> GetAssignment(int id)
         {
-            return (await DoHttpGetRequest($"Assignment/AByI/{id}")).First();
+            return await DoHttpGetSingleRequest($"Assignment/AByI/{id}");
+        }
+
+        public async Task<string> AddAssignment(Assignment assignment)
+        {
+            return await DoHttpPostRequest("Assignment", assignment);
+        }
+
+        public async Task<string> SaveAssignment(Assignment assignment)
+        {
+            return await DoHttpPutRequest("Assignment", assignment);
         }
     }
 }

@@ -36,9 +36,16 @@ namespace WindowsApp.ViewModels
         }
 
         [RelayCommand]
-        async Task Tap(int id)
+        async Task Add()
         {
-            await Shell.Current.GoToAsync($"{nameof(AssignmentPage)}?Id={id}");
+            await Shell.Current.GoToAsync($"{nameof(AddAssignmentPage)}?Id={id}");
+        }
+
+        [RelayCommand]
+        async Task Tap(Assignment assignment)
+        {
+            if (!assignment.Completed)
+                await Shell.Current.GoToAsync($"{nameof(AssignmentPage)}?Id={assignment.Id}");
         }
 
         internal async Task Loaded()

@@ -21,7 +21,8 @@
         <Label Text="Assignments" Grid.Row="1" Grid.Column="1"
                HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                FontSize="Header"/>
-        <!-- Add assignment button here-->
+        
+        <Button Text="Add Assignment" Grid.Row="1" Grid.Column="2" Command="{Binding AddCommand}"/>
 
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
                         ItemsSource="{Binding Assignments}"
@@ -33,7 +34,7 @@
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TenentPageViewModel}}, Path=TapCommand}"
-                                    CommandParameter="{Binding Id}"/>
+                                    CommandParameter="{Binding .}"/>
                             </Frame.GestureRecognizers>
                             <StackLayout Padding="10">
 

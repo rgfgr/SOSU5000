@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WindowsApp.Views.AssignmentPage"
+             x:Class="WindowsApp.Views.AddAssignmentPage"
              xmlns:viewmodel="clr-namespace:WindowsApp.ViewModels"
              xmlns:model="clr-namespace:Entities;assembly=Entities"
-             x:DataType="viewmodel:AssignmentPageViewModel"
-             Title="AssignmentPage"
-             Loaded="Window_Loaded">
+             x:DataType="viewmodel:AddAssignmentPageViewModel"
+             Title="AddAssignmentPage">
 
     <Grid RowDefinitions="100, Auto, *"
           ColumnDefinitions=".25*, .42*, .33*"
@@ -17,34 +16,29 @@
         <Button Text="Go Back" Command="{Binding GoBackCommand}"
                 Grid.Row="1" FontSize="20"/>
 
-        <Label Text="Assignment" Grid.Row="1" Grid.Column="1"
+        <Label Text="Add Assignment" Grid.Row="1" Grid.Column="1"
                HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                FontSize="Header"/>
         <StackLayout Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="Orange">
-            
-            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
-                <Label Text="ID:" Grid.Row="1" FontAttributes="Bold"/>
-                <Label Text="{Binding Assignment.Id}" Grid.Column="2"/>
-            </Grid>
 
             <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
                 <Label Text="Title:" Grid.Row="1" FontAttributes="Bold"/>
-                <Label Text="{Binding Assignment.Titel}" Grid.Column="2"/>
+                <Entry Text="{Binding Assignment.Titel}" Grid.Column="2"/>
             </Grid>
 
             <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
                 <Label Text="Start:" Grid.Row="1" FontAttributes="Bold"/>
-                <Label Text="{Binding Assignment.StartDate}" Grid.Column="2"/>
+                <DatePicker Date="{Binding Assignment.StartDate}" Grid.Column="2"/>
             </Grid>
 
             <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
                 <Label Text="End:" Grid.Row="1" FontAttributes="Bold"/>
-                <Label Text="{Binding Assignment.EndDate}" Grid.Column="2"/>
+                <DatePicker Date="{Binding Assignment.EndDate}" Grid.Column="2"/>
             </Grid>
 
             <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
                 <Label Text="Description:" Grid.Row="1" FontAttributes="Bold"/>
-                <Label Text="{Binding Assignment.Description}" Grid.Column="2"/>
+                <Entry Text="{Binding Assignment.Description}" Grid.Column="2"/>
             </Grid>
 
             <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
@@ -52,15 +46,7 @@
                 <Entry Text="{Binding Assignment.Notes}" Grid.Column="2"/>
             </Grid>
 
-            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
-                <Label Text="SosuId:" Grid.Row="1" FontAttributes="Bold"/>
-                <Entry Text="{Binding SosuId}" Grid.Column="2"/>
-            </Grid>
-
-            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
-                <Button Text="Save" Command="{Binding SaveCommand}" CommandParameter="False" Grid.Row="1"/>
-                <Button Text="Save And complete" Command="{Binding SaveCommand}" CommandParameter="True" Grid.Column="2"/>
-            </Grid>
+            <Button Text="Add" Command="{Binding SaveCommand}" CommandParameter="False" Grid.Row="1"/>
 
         </StackLayout>
     </Grid>

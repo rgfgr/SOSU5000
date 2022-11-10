@@ -10,6 +10,7 @@ namespace WindowsApp.Services.Interfaces
     {
         Task<string> DoHttpDeleteRequest(string controllerUrl);
         Task<List<TEntity>> DoHttpGetRequest(string controllerUrl);
+        Task<TEntity> DoHttpGetSingleRequest(string controllerUrl);
         Task<string> DoHttpPostRequest(string controllerUrl, TEntity entityToInsert);
         Task<string> DoHttpPutRequest(string controllerUrl, TEntity entityToUpdate);
     }

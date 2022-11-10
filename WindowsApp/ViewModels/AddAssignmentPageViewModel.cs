@@ -11,13 +11,14 @@ using WindowsApp.Services.Interfaces;
 namespace WindowsApp.ViewModels
 {
     [QueryProperty("Id", "Id")]
-    public partial class AssignmentPageViewModel : ObservableObject
+    public partial class AddAssignmentPageViewModel : ObservableObject
     {
         IAssignmentService assignmentService;
 
-        public AssignmentPageViewModel(IAssignmentService assignmentService)
+        public AddAssignmentPageViewModel(IAssignmentService assignmentService)
         {
             this.assignmentService = assignmentService;
+            Assignment = new();
         }
 
         [ObservableProperty]
@@ -36,24 +37,11 @@ namespace WindowsApp.ViewModels
         }
 
         [RelayCommand]
-        async Task Save(string comp)
+        async Task Save()
         {
-            if (bool.Parse(comp))
-            {
-                if (SosuId.Length != 4)
-                {
-                    return;
-                }
-                Assignment.Completed = true;
-                Assignment.SosuId = SosuId;
-            }
-            await assignmentService.SaveAssignment(Assignment);
+            Assignment.TenentId = Id;
+            await assignmentService.AddAssignment(Assignment);
             await GoBack();
-        }
-
-        internal async Task Loaded()
-        {
-            Assignment = await assignmentService.GetAssignment(Id);
         }
     }
 }
