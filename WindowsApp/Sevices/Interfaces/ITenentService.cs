@@ -10,5 +10,6 @@ namespace WindowsApp.Services.Interfaces
     public interface ITenentService : IRestService<Tenent>
     {
         Task<List<Tenent>> GetAllTenents();
+        Task<Tenent> GetTenent(int id);
     }
 }

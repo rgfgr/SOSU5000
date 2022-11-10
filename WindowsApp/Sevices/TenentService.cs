@@ -14,5 +14,9 @@ namespace WindowsApp.Services
         {
             return await DoHttpGetRequest("Tenent");
         }
+        public async Task<Tenent> GetTenent(int id)
+        {
+            return (await DoHttpGetRequest($"Tenent/{id}")).First();
+        }
     }
 }
