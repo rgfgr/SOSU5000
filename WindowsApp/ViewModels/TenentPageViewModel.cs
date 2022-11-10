@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsApp.Services.Interfaces;
+using WindowsApp.Views;
 
 namespace WindowsApp.ViewModels
 {
@@ -32,6 +33,12 @@ namespace WindowsApp.ViewModels
         async Task GoBack()
         {
             await Shell.Current.GoToAsync("..");
+        }
+
+        [RelayCommand]
+        async Task Tap(int id)
+        {
+            await Shell.Current.GoToAsync($"{nameof(AssignmentPage)}?Id={id}");
         }
 
         internal async Task Loaded()
