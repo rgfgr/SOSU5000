@@ -18,11 +18,6 @@
                Grid.ColumnSpan="2"
                HorizontalTextAlignment="Center"
                FontSize="25"/>
-        <!-- Not added yet
-        <Button Text="Add Tenent"
-                Command="{Binding AddTenentCommand}"
-                Grid.Row="1"
-                Grid.Column="2"/> -->
 
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
                         ItemsSource="{Binding Tenents}"
