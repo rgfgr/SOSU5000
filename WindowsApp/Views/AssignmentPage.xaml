@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WindowsApp.Views.AssignmentPage"
+             xmlns:viewmodel="clr-namespace:WindowsApp.ViewModels"
+             xmlns:model="clr-namespace:Entities;assembly=Entities"
+             x:DataType="viewmodel:AssignmentPageViewModel"
+             Title="AssignmentPage"
+             Loaded="Window_Loaded">
+    
+    <VerticalStackLayout>
+        <Label 
+            Text="{Binding Assignment.Titel}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

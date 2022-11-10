@@ -33,7 +33,7 @@
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TenentPageViewModel}}, Path=TapCommand}"
-                                    CommandParameter="{Binding .}"/>
+                                    CommandParameter="{Binding Id}"/>
                             </Frame.GestureRecognizers>
                             <StackLayout Padding="10">
 

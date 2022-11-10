@@ -9,6 +9,7 @@ namespace WindowsApp
             InitializeComponent();
 
             Routing.RegisterRoute(nameof(TenentPage), typeof(TenentPage));
+            Routing.RegisterRoute(nameof(AssignmentPage), typeof(AssignmentPage));
         }
     }
 }

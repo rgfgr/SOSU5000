@@ -27,6 +27,10 @@ namespace WindowsApp
             builder.Services.AddTransient<TenentPage>();
             builder.Services.AddTransient<TenentPageViewModel>();
 
+            //builder.Services.AddTransient<IAssignmentService, AssignmentService>();
+            builder.Services.AddTransient<AssignmentPage>();
+            builder.Services.AddTransient<AssignmentPageViewModel>();
+
             return builder.Build();
         }
     }
