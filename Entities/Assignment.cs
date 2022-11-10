@@ -7,7 +7,7 @@ public partial class Assignment
 {
     public int Id { get; set; }
 
-    public int TenentId { get; set; }
+    public int? TenentId { get; set; }
 
     public string Titel { get; set; } = null!;
 
@@ -25,5 +25,5 @@ public partial class Assignment
 
     public virtual Employee? Sosu { get; set; }
 
-    public virtual Tenent Tenent { get; set; } = null!;
+    public virtual Tenent? Tenent { get; set; }
 }

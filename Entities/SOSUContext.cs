@@ -44,7 +44,6 @@ public partial class SOSUContext : DbContext
 
             entity.HasOne(d => d.Tenent).WithMany(p => p.Assignments)
                 .HasForeignKey(d => d.TenentId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Assignments_Tenent");
         });
 
