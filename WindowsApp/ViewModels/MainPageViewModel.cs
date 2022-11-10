@@ -21,12 +21,12 @@ namespace WindowsApp.ViewModels
         ObservableCollection<Tenent> tenents;
 
         [RelayCommand]
-        public async Task Tap(int id)
+        async Task Tap(int id)
         {
             await Shell.Current.GoToAsync($"{nameof(TenentPage)}?Id={id}");
         }
 
-        public async Task Loaded()
+        internal async Task Loaded()
         {
             List<Tenent> tempTenents = await tenentService.GetAllTenents();
             tempTenents.ForEach(t => Tenents.Add(t));
