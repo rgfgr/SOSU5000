@@ -6,28 +6,31 @@
              xmlns:model="clr-namespace:Entities;assembly=Entities"
              x:DataType="viewmodel:TenentPageViewModel"
              Title="TenentPage">
-    
+
     <Grid RowDefinitions="100, Auto, *"
-          ColumnDefinitions=".33*, .33*, .33*"
+          ColumnDefinitions=".25*, .42*, .33*"
           RowSpacing="10"
           Padding="10">
 
-        <Label Text="Assignments" Grid.Row="1" Grid.ColumnSpan="2"
-               HorizontalOptions="Center" FontSize="25"/>
+        <Button Text="Go Back" Command="{Binding GoBackCommand}"
+                Grid.Row="1" FontSize="20"/>
+
+        <Label Text="Assignments" Grid.Row="1" Grid.Column="1"
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+               FontSize="Header"/>
         <!-- Add assignment button here-->
 
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
-                        ItemsSource="{Binding Tenent.Assignments}"
                         SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Assignment">
                     <Grid Padding="0,5">
                         <Frame BackgroundColor="Orange">
-                            <Frame.GestureRecognizers>
+                            <!--<Frame.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TenentPageViewModel}}, Path=TapCommand}"
                                     CommandParameter="{Binding .}"/>
-                            </Frame.GestureRecognizers>
+                            </Frame.GestureRecognizers>-->
                         </Frame>
                     </Grid>
                 </DataTemplate>

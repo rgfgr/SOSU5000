@@ -1,5 +1,6 @@
 ﻿using WindowsApp.Services;
 using WindowsApp.Services.Interfaces;
+using WindowsApp.Sevices;
 using WindowsApp.ViewModels;
 using WindowsApp.Views;
 
@@ -22,7 +23,9 @@ namespace WindowsApp
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainPageViewModel>();
 
-
+            builder.Services.AddTransient<IAssignmentService, AssignmentService>();
+            builder.Services.AddTransient<TenentPage>();
+            builder.Services.AddTransient<TenentPageViewModel>();
 
             return builder.Build();
         }
