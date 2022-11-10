@@ -47,6 +47,7 @@
                                     <Label Text="Name:" Grid.Row="1" FontAttributes="Bold"/>
                                     <Label Text="{Binding Name}" Grid.Column="2"/>
                                 </Grid>
+                                
                             </StackLayout>
                         </Frame>
                     </Grid>

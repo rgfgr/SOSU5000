@@ -5,12 +5,15 @@
              xmlns:viewmodel="clr-namespace:WindowsApp.ViewModels"
              xmlns:model="clr-namespace:Entities;assembly=Entities"
              x:DataType="viewmodel:TenentPageViewModel"
-             Title="TenentPage">
+             Title="TenentPage"
+             Loaded="Window_Loaded">
 
     <Grid RowDefinitions="100, Auto, *"
           ColumnDefinitions=".25*, .42*, .33*"
           RowSpacing="10"
           Padding="10">
+
+        <Label Text="{Binding Id}"/>
 
         <Button Text="Go Back" Command="{Binding GoBackCommand}"
                 Grid.Row="1" FontSize="20"/>
@@ -21,16 +24,50 @@
         <!-- Add assignment button here-->
 
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
+                        ItemsSource="{Binding Assignments}"
                         SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Assignment">
                     <Grid Padding="0,5">
                         <Frame BackgroundColor="Orange">
-                            <!--<Frame.GestureRecognizers>
+                            <Frame.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TenentPageViewModel}}, Path=TapCommand}"
                                     CommandParameter="{Binding .}"/>
-                            </Frame.GestureRecognizers>-->
+                            </Frame.GestureRecognizers>
+                            <StackLayout Padding="10">
+
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
+                                    <Label Text="ID:" Grid.Row="1" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Id}" Grid.Column="2"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
+                                    <Label Text="Title:" Grid.Row="1" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Titel}" Grid.Column="2"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
+                                    <Label Text="Start:" Grid.Row="1" FontAttributes="Bold"/>
+                                    <Label Text="{Binding StartDate}" Grid.Column="2"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
+                                    <Label Text="End:" Grid.Row="1" FontAttributes="Bold"/>
+                                    <Label Text="{Binding EndDate}" Grid.Column="2"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5">
+                                    <Label Text="Completed:" Grid.Row="1" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Completed}" Grid.Column="2"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5" IsVisible="{Binding Completed}">
+                                    <Label Text="Sosu Signature:" Grid.Row="1" FontAttributes="Bold"/>
+                                    <Label Text="{Binding SosuId}" Grid.Column="2"/>
+                                </Grid>
+                                
+                            </StackLayout>
                         </Frame>
                     </Grid>
                 </DataTemplate>

@@ -4,9 +4,16 @@ namespace WindowsApp.Views;
 
 public partial class TenentPage : ContentPage
 {
+	TenentPageViewModel vm;
 	public TenentPage(TenentPageViewModel vm)
 	{
 		InitializeComponent();
-		BindingContext = vm;
+		this.vm = vm;
+		BindingContext = this.vm;
+	}
+
+	private async void Window_Loaded(object sender, EventArgs e)
+	{
+		await vm.Loaded();
 	}
 }
