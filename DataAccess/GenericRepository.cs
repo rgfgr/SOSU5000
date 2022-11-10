@@ -19,6 +19,11 @@ namespace DataAccess
             return await dbSet.ToListAsync();
         }
 
+        public async Task<TEntity> GetById(object id)
+        {
+            return await dbSet.FindAsync(id);
+        }
+
         public async Task Insert(TEntity entity)
         {
             await dbSet.AddAsync(entity);
