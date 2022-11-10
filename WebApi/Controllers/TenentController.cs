@@ -24,6 +24,19 @@ namespace WebApi.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Tenent>> GetTenent(int id)
+        {
+            try
+            {
+                return Ok(await unitOfWork.TenentRepository.GetById(id));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddTenent(Tenent tenent)
         {

@@ -11,12 +11,25 @@ namespace WebApi.Controllers
     {
         UnitOfWork unitOfWork = new();
 
-        [HttpGet("{id}")]
+        [HttpGet("AByT/{id}")]
         public async Task<ActionResult<IEnumerable<Assignment>>> GetAssignmentsByTenent(int id)
         {
             try
             {
                 return Ok(await unitOfWork.AssignmentRepository.GetAssignmentsByTenent(id));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpGet("AByI/{id}")]
+        public async Task<ActionResult<Assignment>> GetAssignment(int id)
+        {
+            try
+            {
+                return Ok(await unitOfWork.AssignmentRepository.GetById(id));
             }
             catch (Exception)
             {
