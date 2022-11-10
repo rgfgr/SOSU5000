@@ -21,9 +21,9 @@ namespace WindowsApp.ViewModels
         ObservableCollection<Tenent> tenents;
 
         [RelayCommand]
-        public async Task Tap(Tenent tenent)
+        public async Task Tap(int id)
         {
-            await Shell.Current.GoToAsync($"{nameof(TenentPage)}?Tenent={tenent}");
+            await Shell.Current.GoToAsync($"{nameof(TenentPage)}?Id={id}");
         }
 
         public async Task Loaded()
