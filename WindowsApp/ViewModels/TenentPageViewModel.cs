@@ -33,5 +33,11 @@ namespace WindowsApp.ViewModels
         {
             await Shell.Current.GoToAsync("..");
         }
+
+        internal async Task Loaded()
+        {
+            var tempAssignments = await _assignmentService.GetAssignmentsByTenent(Id);
+            tempAssignments.ForEach(s => Assignments.Add(s));
+        }
     }
 }
